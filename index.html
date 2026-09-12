@@ -7,167 +7,173 @@
 <title>Happy Journey ❤️</title>
 
 <style>
-    * {
-        box-sizing: border-box;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6f0, #ffc0cb);
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    animation: floatUp 7s linear infinite;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 30%; animation-delay: 2s; }
+.heart:nth-child(3) { left: 50%; animation-delay: 4s; }
+.heart:nth-child(4) { left: 70%; animation-delay: 1s; }
+.heart:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
     }
 
-    body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: Arial, sans-serif;
-        overflow-x: hidden;
-        background: linear-gradient(135deg, #ffd1dc, #ffe6f0, #ffc0cb);
-    }
-
-    /* Floating hearts */
-    .heart {
-        position: fixed;
-        bottom: -50px;
-        font-size: 25px;
-        animation: floatUp 7s linear infinite;
+    20% {
         opacity: 0.8;
-        pointer-events: none;
     }
 
-    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .heart:nth-child(2) { left: 30%; animation-delay: 2s; }
-    .heart:nth-child(3) { left: 50%; animation-delay: 4s; }
-    .heart:nth-child(4) { left: 70%; animation-delay: 1s; }
-    .heart:nth-child(5) { left: 90%; animation-delay: 3s; }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
 
-    @keyframes floatUp {
-        0% {
-            transform: translateY(0) scale(1);
-            opacity: 0;
-        }
-        20% {
-            opacity: 0.8;
-        }
-        100% {
-            transform: translateY(-110vh) scale(1.5);
-            opacity: 0;
-        }
+/* Welcome screen */
+#welcome {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.welcome-card {
+    background: rgba(255,255,255,0.94);
+    padding: 40px 25px;
+    border-radius: 30px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(255,105,180,0.3);
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
     }
 
-    /* Welcome screen */
-    #welcome {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 25px;
-        text-align: center;
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.welcome-card h1 {
+    color: #ff4f81;
+    font-size: 28px;
+    line-height: 1.4;
+}
+
+.welcome-card p {
+    color: #6b4050;
+    font-size: 16px;
+    margin: 20px 0 30px;
+}
+
+/* Buttons */
+button {
+    border: none;
+    background: linear-gradient(135deg, #ff4f81, #ff8fab);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255,79,129,0.3);
+    animation: pulse 2s infinite;
+    margin: 8px;
+}
+
+.song-button {
+    background: linear-gradient(135deg, #9c27b0, #e91e63);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
     }
 
-    .welcome-card {
-        background: rgba(255,255,255,0.92);
-        padding: 40px 25px;
-        border-radius: 30px;
-        max-width: 500px;
-        width: 100%;
-        box-shadow: 0 15px 40px rgba(255,105,180,0.3);
-        animation: appear 1.2s ease;
+    50% {
+        transform: scale(1.05);
     }
+}
 
-    @keyframes appear {
-        from {
-            opacity: 0;
-            transform: translateY(40px) scale(0.9);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-    }
+/* Message card */
+#message {
+    display: none;
+    min-height: 100vh;
+    padding: 30px 15px;
+    justify-content: center;
+    align-items: center;
+}
 
-    .welcome-card h1 {
-        color: #ff4f81;
-        font-size: 28px;
-        line-height: 1.4;
-    }
+.card {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(255,105,180,0.3);
+    text-align: center;
+    animation: appear 1s ease;
+}
 
-    .welcome-card p {
-        color: #6b4050;
-        font-size: 16px;
-        margin: 20px 0 30px;
-    }
+.big-heart {
+    font-size: 40px;
+    margin: 10px;
+}
 
-    button {
-        border: none;
-        background: linear-gradient(135deg, #ff4f81, #ff8fab);
-        color: white;
-        padding: 15px 28px;
-        border-radius: 30px;
-        font-size: 17px;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 8px 20px rgba(255,79,129,0.3);
-        animation: pulse 2s infinite;
-        margin: 8px;
-    }
+h2 {
+    color: #ff4f81;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
 
-    .song-button {
-        background: linear-gradient(135deg, #9c27b0, #e91e63);
-    }
+.card p {
+    color: #5a3040;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
 
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-    }
+.note {
+    color: #ff4081 !important;
+    font-weight: bold;
+}
 
-    /* Message card */
-    #message {
-        display: none;
-        min-height: 100vh;
-        padding: 30px 15px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .card {
-        background: white;
-        width: 100%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 25px;
-        box-shadow: 0 10px 30px rgba(255,105,180,0.3);
-        text-align: center;
-        animation: appear 1s ease;
-    }
-
-    .big-heart {
-        font-size: 40px;
-        margin: 10px;
-    }
-
-    h2 {
-        color: #ff4f81;
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-
-    .card p {
-        color: #5a3040;
-        font-size: 17px;
-        line-height: 1.8;
-        margin: 15px 0;
-    }
-
-    .note {
-        color: #ff4081 !important;
-        font-weight: bold;
-    }
-
-    .kannada {
-        color: #e91e63 !important;
-        font-weight: bold;
-        font-size: 18px !important;
-        margin-top: 25px !important;
-    }
+.kannada {
+    color: #e91e63 !important;
+    font-weight: bold;
+    font-size: 18px !important;
+    margin-top: 25px !important;
+}
 </style>
 </head>
 
@@ -182,6 +188,7 @@
 
 <!-- Welcome screen -->
 <section id="welcome">
+
     <div class="welcome-card">
 
         <div style="font-size:55px;">🌍❤️</div>
@@ -200,6 +207,7 @@
         </button>
 
     </div>
+
 </section>
 
 <!-- Message -->
@@ -273,7 +281,9 @@
         <p>
             With lots of love 😘,<br>
             Your Hendthi ❤️
+        </p>
 
+        <p>
             Thanks a lot for being with me and choosing me as ur partner 😘
         </p>
 
@@ -281,9 +291,10 @@
             ನೀನು ಗುರಿ ತಲುಪುವವರೆಗೂ ನಾನು ಎಂದಿಗೂ ಜೊತೆಯಾಗಿರುವೆ ❤️
         </p>
 
-        <!-- Song button -->
-        <button class="song-button"
-                onclick="window.open('https://music.apple.com/us/song/1792145485', '_blank')">
+        <!-- Song -->
+        <button
+            class="song-button"
+            onclick="window.open('https://www.youtube.com/results?search_query=Lucky+Man+Friendship+Song+Kannada', '_blank')">
             🎵 Play Friendship Song
         </button>
 
@@ -301,4 +312,4 @@ function openSurprise() {
 </script>
 
 </body>
-</html>
+   </html>
