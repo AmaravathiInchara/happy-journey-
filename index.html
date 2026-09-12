@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -103,6 +103,11 @@
         cursor: pointer;
         box-shadow: 0 8px 20px rgba(255,79,129,0.3);
         animation: pulse 2s infinite;
+        margin: 8px;
+    }
+
+    .song-button {
+        background: linear-gradient(135deg, #9c27b0, #e91e63);
     }
 
     @keyframes pulse {
@@ -275,6 +280,12 @@
         <p class="kannada">
             ನೀನು ಗುರಿ ತಲುಪುವವರೆಗೂ ನಾನು ಎಂದಿಗೂ ಜೊತೆಯಾಗಿರುವೆ ❤️
         </p>
+
+        <!-- Song button -->
+        <button class="song-button"
+                onclick="window.open('https://music.apple.com/us/song/1792145485', '_blank')">
+            🎵 Play Friendship Song
+        </button>
 
         <div class="big-heart">💕</div>
 
